@@ -75,7 +75,15 @@ namespace MCD_KapsullemeNedir
             
             get
             {
-                return _tckimliknumarasi.Substring(0, 3);
+                if (_tckimliknumarasi!=null)
+                {
+                    return _tckimliknumarasi.Substring(0, 3);
+                }
+                else
+                {
+                    return "";
+                }
+                
             }
             set
             {
