@@ -6,12 +6,45 @@ using System.Threading.Tasks;
 
 namespace MCD_KapsullemeNedir
 {
-    class Musteri
+    internal class Musteri
     {
         //Class => Field
         int id;
+
+        public Musteri()
+        {
+            this.id = IDuret();
+        }
+
+        
+
+        public int ID
+        {
+            get
+            {
+                return this.id;
+            }
+            private set
+            {
+                this.id = value;
+            }
+        }
+
+
         public string isim;
-        public string soyisim;
+        private string _soyisim;
+        public string Soyisim
+        {
+            get
+            {
+                return this._soyisim;  
+            }
+            set
+            {
+                this._soyisim = value;
+                this.emailAdres = string.Format("{0}.{1}@hotmail.com", isim, _soyisim);
+            }
+        }
 
 
         //Class => Property
@@ -32,6 +65,58 @@ namespace MCD_KapsullemeNedir
             {
                 return this.emailAdres;
             }
+        }
+
+        //Ara Ödev
+
+        private string _tckimliknumarasi;
+        public string TCKimlikNumarası
+        {
+            
+            get
+            {
+                return _tckimliknumarasi.Substring(0, 3);
+            }
+            set
+            {
+
+                if (value.Length==11)
+                {
+                    bool bayrak = false;
+                    for (int i = 0; i < value.Length; i++)
+                    {
+                        bool karakterKontrol = char.IsNumber(value[i]);
+                        if (karakterKontrol)
+                        {
+                            //sayısal değer demektir.
+                        }
+                        else
+                        {
+                            bayrak = true;
+                            break;
+                        }
+                    }
+                    if (bayrak)
+                    {
+                        Console.WriteLine("TC kimlik numarası içindeki değerler sayısal olmalıdır...");
+                    }
+                    else
+                    {
+                        this._tckimliknumarasi = value;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Tc kimlik numarası 11 hane olmalıdır...");
+                }
+            }
+        }
+
+
+        private int IDuret()
+        {
+            Random rnd = new Random();
+            return rnd.Next(10000, 90000);
         }
     }
 }

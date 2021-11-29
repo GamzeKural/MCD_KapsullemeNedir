@@ -20,9 +20,37 @@ namespace MCD_KapsullemeNedir
              * 
              */
 
+            
+            
             //Genel olarak kapsülleme konusuna giriş yaptık.
             M1.EmailAdres = "turanfaik@hotmail.com";
             Console.WriteLine(M1.EmailAdres);
+
+            
+            
+            //1.Field değer ataması yapılmasın ama değer okunabilsin.
+            Console.WriteLine("Müşteri ID değeri: "+M1.ID.ToString());
+            //M1.ID = 10; (Buna izin vermiyor)
+
+
+
+            M1.TCKimlikNumarası = "12254402599";
+            string TC = M1.TCKimlikNumarası;
+            Console.WriteLine(TC);
+            
+            //isim ve soyisim
+            //isim ve soyisim[soyisim] set
+            //email adresi...
+            //email get faik.turan@hotmail.com
+            //set private olduğunda set etmez
+            M1.isim = "faik";
+            M1.Soyisim = "turan";
+            Console.WriteLine(M1.EmailAdres);
+
+
+
+
+
 
             Console.ReadKey();
 
